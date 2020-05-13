@@ -1,10 +1,7 @@
 package com.ellen.androidface
 
+import com.ellen.androidface.math.*
 import org.junit.Assert
-import org.junit.Test
-import java.lang.StringBuilder
-import com.ellen.androidface.math.Node
-import com.ellen.androidface.math.reversalNode
 import org.junit.Test
 
 /**
@@ -32,6 +29,11 @@ class ExampleUnitTest {
     @Test
     fun f3_isCorrect() {
         Assert.assertEquals(find1stCharInInputs("bcbcaddd"), 'a')
+    }
+
+    @Test
+    fun f4_quickSort() {
+        Assert.assertArrayEquals(quicklySort(arrayOf(3, 4, 2, 2, 1, 5)), arrayOf(1, 2, 2, 3, 4, 5))
     }
 
 }
