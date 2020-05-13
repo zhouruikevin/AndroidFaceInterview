@@ -12,3 +12,12 @@
 /captures
 .externalNativeBuild
 !/.idea/
+app/app.iml
+app/local.properties
+app/.idea/.gitignore
+app/.idea/modules.xml
+app/.idea/caches/build_file_checksums.ser
+app/gradlew
+app/gradlew.bat
+app/gradle/wrapper/gradle-wrapper.jar
+app/gradle/wrapper/gradle-wrapper.properties

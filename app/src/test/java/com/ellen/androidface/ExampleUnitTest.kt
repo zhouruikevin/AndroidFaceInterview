@@ -3,6 +3,9 @@ package com.ellen.androidface
 import org.junit.Assert
 import org.junit.Test
 import java.lang.StringBuilder
+import com.ellen.androidface.math.Node
+import com.ellen.androidface.math.reversalNode
+import org.junit.Test
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -30,4 +33,6 @@ class ExampleUnitTest {
     fun f3_isCorrect() {
         Assert.assertEquals(find1stCharInInputs("bcbcaddd"), 'a')
     }
+
 }
+
