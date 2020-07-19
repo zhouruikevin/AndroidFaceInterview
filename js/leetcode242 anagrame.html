@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>anagram,nagaram -> true</title>
+</head>
+<body>
+    // Map
+</body>
+
+<script>
+    const nagaram = function (char1, char2) {
+        if (char1 === null || char2 === null || char1.length != char2.length) {
+            return false;
+        }
+        const map = new Map()
+        for (let i = 0; i < char1.length; i++) {
+            if (map.has(char1[i])) {
+                let count = map.get(char1[i])
+                count++
+                map.set(char1[i], count)
+            } else {
+                map.set(char1[i], 1)
+            }
+
+            if (map.has(char2[i])) {
+                let count = map.get(char2[i])
+                count--
+                map.set(char2[i], count);
+            } else {
+                map.set(char2[i], -1);
+            }
+        }
+
+        for (const letter in map) {
+            if (map.get(letter) != 0) {
+                return false
+            }
+        }
+        return true
+    }
+
+    console.log(nagaram('anagram', 'nagaram'))
+</script>
+</html>

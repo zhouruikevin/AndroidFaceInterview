@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a man, a plan, a canal:Panama reseave -> true</title>
+</head>
+<body>
+    // 双指针
+</body>
+
+<script>
+    const isPali = function (s) {
+        //todo 字符串去除空格 符号
+        for (let i = 0, j = s.length - 1; i <= s.length / 2; i++, j--) {
+            if (s[i] != s[j]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    console.log(isPali("aba"))
+</script>
+</html>

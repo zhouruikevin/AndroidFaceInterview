@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[2,3,11,7] and 9 -> 2,7</title>
+</head>
+<body>
+    // Map
+</body>
+<script>
+    const twoSum = function (nums, sum) {
+        const map = new Map()
+        const result = new Map()
+        for (let i = 0; i < nums.length; i++) {
+            const value = sum;
+            if (map.has(value - nums[i])) {
+                result.set(i, map[value - nums[i]])
+            } else {
+                map.set(nums[i], i);
+            }
+        }
+        return result;
+    }
+    console.log(twoSum([2, 3, 11, 7], 9))
+</script>
+</html>

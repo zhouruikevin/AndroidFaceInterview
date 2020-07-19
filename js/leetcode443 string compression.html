@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>abcaaabbb -> a1b1c1a3b3</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    const compress = function (chars) {
+        let result = ""
+        let sum = 1;
+        for (let i = 0; i < chars.length - 1; i++) {
+            if (chars[i] === chars[i + 1]) {
+                sum++;
+            } else {
+                result += `${chars[i]}${sum}`;
+                sum = 1;
+            }
+        }
+        result = result + chars[chars.length - 1] + sum;
+        return result;
+    }
+    console.log(compress("abcaaabbb"));
+</script>
+
+</html>

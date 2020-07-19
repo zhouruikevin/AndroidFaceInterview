@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+// 顺序数组计算大小
+</body>
+
+<script>
+    const maxProfit = function (prices) {
+        if (prices.length === 0) {
+            return 0;
+        }
+
+        let minPrice = prices[0]
+        let maxProfit = 0
+
+        for (let i = 0; i < prices.length; i++) {
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
+            } else if ((prices[i] - minPrice) > maxProfit) {
+                maxProfit = prices[i] - minPrice
+            }
+        }
+        return maxProfit;
+    }
+
+    console.assert(maxProfit([7, 1, 5, 10, 3]) === 9)
+</script>
+</html>
