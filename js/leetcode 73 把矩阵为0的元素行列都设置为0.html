@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>把矩阵中为0的元素行列都设置为0</title>
+</head>
+<body>
+[1,1,1]
+[1,0,1]
+[1,1,1]
+
+变成
+
+[1,0,1]
+[0,0,0]
+[1,0,1]
+
+// 使用第一行和第一列来存储数据 但是要注意第一行和列自身为0的情况
+</body>
+<script>
+    const setZeroes = function (m) {
+        let firstColHasZero = false
+        let firstRowHasZero = false
+        for (let i = 0; i < m.length; i++) {
+            if (m[i][0] === 0) {
+                firstColHasZero = true;
+                break;
+            }
+        }
+        for (let i = 0; i < m[0].length; i++) {
+            if (m[0][i] === 0) {
+                firstRowHasZero = true;
+                break;
+            }
+        }
+
+        for (let i = 0; i < m.length; i++) {
+            for (let j = 0; j < m[i].length; j++) {
+                if (m[i][j] === 0) {
+                    m[0][j] = 0;
+                    m[i][0] = 0;
+                }
+            }
+        }
+
+        for (let i = 0; i < m.length; i++) {
+            if (m[i][0] === 0) {
+                for (let j = 0; j < m[i].length; j++) {
+                    m[i][j] = 0;
+                }
+            }
+        }
+
+        for (let i = 0; i < m[0].length; i++) {
+            if (m[0][i] === 0) {
+                for (let j = 0; j < m.length; j++) {
+                    m[j][i] = 0;
+                }
+            }
+        }
+
+        if (firstRowHasZero) {
+            for (let i = 0; i < m[0].length; i++) {
+                m[0][i] = 0;
+            }
+        }
+
+        if (firstColHasZero) {
+            for (let i = 0; i < m.length; i++) {
+                m[i][0] = 0;
+            }
+        }
+        return m;
+    }
+
+    console.log(setZeroes([[1, 1, 1], [1, 0, 1], [1, 1, 1]]))
+</script>
+</html>

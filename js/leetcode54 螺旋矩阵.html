@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>螺旋矩阵</title>
+</head>
+<body>
+// 矩阵螺旋遍历. 按照方向遍历直接打印
+
+</body>
+<script>
+    const getArr = function (nums) {
+        const result = [];
+        let arrow = 'right';
+        let left = 0;
+        let right = nums[0].length - 1;
+        let top = 0;
+        let bottom = nums.length - 1;
+        while (left <= right && top <= bottom) {
+            if (arrow === 'right') {
+                for (let i = left; i <= right; i++) {
+                    result.push(nums[top][i]);
+                }
+                arrow = 'bottom'
+                top++;
+            } else if (arrow === 'bottom') {
+                for (let i = top; i <= bottom; i++) {
+                    result.push(nums[i][right]);
+                }
+                right--;
+                arrow = 'left';
+            } else if (arrow === 'left') {
+                for (let i = right; i >= left; i--) {
+                    result.push(nums[bottom][i]);
+                }
+                arrow = 'top'
+                bottom--;
+            } else {
+                for (let i = bottom; i >= top; i--) {
+                    result.push(nums[i][left]);
+                }
+                arrow = 'right'
+                left++;
+            }
+        }
+        return result;
+    }
+
+    console.assert(getArr([[1, 2, 3], [4, 5, 6], [7, 8, 9]]).join(',') === [1, 2, 3, 6, 9, 8, 7, 4, 5].join(','))
+</script>
+</html>
