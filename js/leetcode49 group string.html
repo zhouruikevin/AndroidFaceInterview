@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串数组分组</title>
+</head>
+<body>
+// [eat tea tan ate nat bat] => [[eat,tea,ate],[tan,nat],[bat]]
+// 统计字符出现次数
+
+</body>
+<script>
+    const beGroupString = function (strs) {
+        // 遍历数组
+        // 放入集合
+        // 集合取出
+        if (strs === null) {
+            return []
+        }
+        const map = new Map();
+        for (const str of strs) {
+            const characterData = Array(26).fill(0)
+            for (let i = 0; i < str.length; i++) {
+                let charAscii = str.charCodeAt(i) - 97
+                characterData[charAscii] = characterData[charAscii] + 1
+            }
+            const key = characterData.join('')
+            if (map.has(key)) {
+                map.set(key, [...map.get(key), str])
+            } else {
+                map.set(key, [str])
+            }
+        }
+        const result = [];
+        map.forEach(value => {
+            result.push(value);
+        })
+        return result;
+    }
+    console.log(beGroupString(["eat", "tea", 'tan', 'ate', 'nat', 'bat'])
+    )
+</script>
+</html>

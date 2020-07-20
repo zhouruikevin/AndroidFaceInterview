@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最大回文子字符串</title>
+</head>
+<body>
+// babad -> bab
+
+// abbc -> bb
+
+// 中心扩散+问题分解
+</body>
+<script>
+    const findLongestSubString = function (chars) {
+        if (chars === null || chars.length < 2) {
+            return chars
+        }
+        let startIndex = 0
+        let maxSize = 0
+
+        const isValidString = function (start, end) {
+            while (0 <= start && end < chars.length && chars[start] === chars[end] && start <= end) {
+                if (end - start + 1 > maxSize) {
+                    maxSize = end - start + 1
+                    startIndex = start
+                }
+                start--
+                end++
+            }
+        }
+        for (let i = 0; i < chars.length; i++) {
+            isValidString(i, i + 1)
+            isValidString(i - 1, i + 1)
+        }
+        return chars.substring(startIndex, startIndex + maxSize)
+    }
+    console.assert(findLongestSubString("babad") === 'bab' || findLongestSubString("babad") === 'aba')
+    console.assert(findLongestSubString("abbc") === 'bb')
+</script>
+</html>
