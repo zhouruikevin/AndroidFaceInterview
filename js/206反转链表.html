@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>反转链表,解构赋值</title>
+</head>
+<body>
+// 链表的问题大部分都可以归纳为玩指针
+
+
+</body>
+<script>
+    class Node {  // 链表节点
+        constructor(data) {
+            this.data = data;   // 节点数据
+            this.next = null;   // 下一个节点的指针
+        }
+    }
+
+    const revertLink = function (head) {
+        let prev = null
+        let curr = head
+        let next = head
+        while (curr !== null) {
+            // next = curr.next
+            // curr.next = prev
+            // prev = curr
+            // curr = next
+            [curr.next, curr, prev] = [prev, curr.next, curr]
+        }
+        return prev
+    }
+    const test = function (node) {
+        let nodeList = new Node(1);
+        let head = nodeList;
+        nodeList.next = new Node(2);
+        nodeList = nodeList.next;
+        nodeList.next = new Node(3);
+        nodeList = nodeList.next;
+        nodeList.next = new Node(4);
+
+        let result = revertLink(head);
+
+
+        console.log("result:")
+        while (result !== null) {
+            console.log(result.data);
+            result = result.next;
+        }
+    }
+    test();
+</script>
+</html>
