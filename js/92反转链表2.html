@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    class Node {  // 链表节点
+        constructor(data) {
+            this.data = data;   // 节点数据
+            this.next = null;   // 下一个节点的指针
+        }
+    }
+
+    const reverseBetween = function (head, m, n) {
+        let prev = null;
+        let curr = head;
+        for (let i = 1; i < m; i++) {
+            [prev, curr] = [curr, curr.next]
+        }
+        let prev2 = prev;
+        let curr2 = curr;
+        for (let i = m; i <= n; i++) {
+            [curr.next, curr, prev] = [prev, curr.next, curr]
+        }
+
+        if (prev2 !== null) {
+            prev2.next = prev;
+        } else {
+            head = prev;
+        }
+        curr2.next = curr;
+        return head;
+    }
+
+    const test = function () {
+        let nodeList = new Node(1);
+        let head = nodeList;
+        nodeList.next = new Node(2);
+        nodeList = nodeList.next;
+        nodeList.next = new Node(3);
+        nodeList = nodeList.next;
+        nodeList.next = new Node(4);
+        nodeList = nodeList.next;
+        nodeList.next = new Node(5);
+
+        let result = reverseBetween(head, 2, 4);
+        while (result !== null) {
+            console.log(result.data);
+            result = result.next;
+        }
+    }
+    test();
+</script>
+</html>
