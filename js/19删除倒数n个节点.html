@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快慢指针</title>
+</head>
+<body>
+1. 考虑元素过少的删除情况
+2. 考虑怎么返回第一个元素
+3. 考虑删除倒数n元素实际是倒数n+1元素指针变化
+</body>
+<script>
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const removeNthFromEnd = function (head, n) {
+        const dummy = new ListNode();
+        dummy.next = head;
+        let n1 = dummy;
+        let n2 = dummy;
+        for (let i = 0; i <= n && n1 !== null; i++) {
+            n1 = n1.next;
+        }
+        while (n1 !== null) {
+            n1 = n1.next;
+            n2 = n2.next;
+        }
+
+        n2.next = n2.next.next;
+        return dummy.next;
+    };
+
+    const test = function () {
+        const head = new ListNode(0);
+        const next1 = new ListNode(1);
+        head.next = next1;
+        const next2 = new ListNode(2);
+        next1.next = next2;
+        removeNthFromEnd(head, 2);
+
+        let tmp = head;
+        while (tmp !== null) {
+            console.log(tmp.val);
+            tmp = tmp.next;
+        }
+    }
+
+    test()
+</script>
+</html>

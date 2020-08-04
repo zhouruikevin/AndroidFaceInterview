@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链表指向操作</title>
+</head>
+<body>
+// 指向下一个的写法
+</body>
+<script>
+
+    function Node(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const oddEvenList = function (head) {
+        if (head === null || head.next === null) {
+            return head;
+        }
+        let odd = head;
+        let even = head.next;
+        let evenHead = head.next;
+        while (even !== null && even.next !== null) {
+            odd.next = odd.next.next;
+            odd = odd.next;
+            even.next = even.next.next;
+            even = even.next;
+        }
+        odd.next = evenHead;
+        return head;
+    };
+
+    const test = function () {
+        const n1 = new Node(1);
+        const n2 = new Node(2);
+        const n3 = new Node(3);
+        const n4 = new Node(4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        let node = oddEvenList(n1);
+        while (node !== null) {
+            console.log(node.val)
+            node = node.next
+        }
+    }
+    test()
+</script>
+</html>

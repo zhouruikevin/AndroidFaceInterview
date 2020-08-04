@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快慢指针</title>
+</head>
+<body>
+
+</body>
+<script>
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const middleNode = function (head) {
+        let first = head;
+        let slow = head;
+        while (first !== null && first.next !== null) {
+            first = first.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    };
+
+    const test = function () {
+        const head = new ListNode(0);
+        const next1 = new ListNode(1);
+        head.next = next1;
+        const next2 = new ListNode(2);
+        next1.next = next2;
+        console.assert(middleNode(head).val === 1);
+    }
+
+    test()
+</script>
+</html>

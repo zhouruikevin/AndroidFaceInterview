@@ -18,19 +18,14 @@
     }
 
     const revertLink = function (head) {
-        let prev = null
+        let pre = null
         let curr = head
-        let next = head
         while (curr !== null) {
-            // next = curr.next
-            // curr.next = prev
-            // prev = curr
-            // curr = next
-            [curr.next, curr, prev] = [prev, curr.next, curr]
+            [curr.next, curr, pre] = [pre, curr.next, curr]
         }
-        return prev
+        return pre;
     }
-    const test = function (node) {
+    const test = function () {
         let nodeList = new Node(1);
         let head = nodeList;
         nodeList.next = new Node(2);

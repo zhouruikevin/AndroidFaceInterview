@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算链表公共区域</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Node {
+        constructor(val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
+    const getIntersectionNode = function (headA, headB) {
+        let n1 = headA;
+        let n2 = headB;
+        while (n1 !== n2) {
+            if (n1 !== null) {
+                n1 = n1.next;
+            } else {
+                n1 = headB;
+            }
+
+            if (n2 !== null) {
+                n2 = n2.next;
+            } else {
+                n2 = headA;
+            }
+        }
+        return n1;
+    };
+
+    const test = function () {
+        const n1 = new Node(1);
+        const n2 = new Node(2);
+        const n3 = new Node(3);
+        const n4 = new Node(4);
+        n1.next = n3;
+        n2.next = n3;
+        n3.next = n4;
+        console.assert(getIntersectionNode(n1, n2) === n3)
+    }
+</script>
+</html>
