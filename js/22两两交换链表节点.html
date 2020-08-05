@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const swapPairs = function (head) {
+        let dummy = new ListNode();
+        dummy.next = head;
+        let pre = dummy;
+        while (pre.next !== null && pre.next.next !== null) {
+            let n1 = pre.next;
+            let n2 = pre.next.next;
+            pre.next = n2;
+            n1.next = n2.next;
+            n2.next = n1;
+            pre = n1;
+        }
+        return dummy.next;
+    };
+
+    const test = function () {
+        const n1 = new ListNode(1);
+        const n2 = new ListNode(2);
+        const n3 = new ListNode(3);
+        const n4 = new ListNode(4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        let node = swapPairs(n1);
+        while (node !== null) {
+            console.log(node.val);
+            node = node.next;
+        }
+    }
+    test()
+</script>
+</html>

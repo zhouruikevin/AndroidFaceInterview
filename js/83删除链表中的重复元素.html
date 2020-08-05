@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Node {
+        constructor(val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const deleteDuplicates = function (head) {
+        let node = head;
+        while (node !== null && node.next !== null) {
+            if (node.val === node.next.val) {
+                node.next = node.next.next;
+            } else {
+                node = node.next;
+            }
+        }
+        return head;
+    };
+
+    const test = function () {
+        const n1 = new ListNode(1);
+        const n2 = new ListNode(2);
+        const n3 = new ListNode(2);
+        const n4 = new ListNode(4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+
+        let node = deleteDuplicates(n1);
+        while (node !== null) {
+            console.log(node.val);
+            node = node.next;
+        }
+    }
+    test();
+</script>
+</html>
