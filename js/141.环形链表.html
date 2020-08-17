@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快慢指针</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const haveCycle = function (n) {
+        if (n1 === null) {
+            return false;
+        }
+        let [slow, fast] = [n, n];
+        while (fast.next !== null && fast.next.next !== null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            while (slow === fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+</script>
+</html>

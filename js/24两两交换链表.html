@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两两交换链表节点</title>
+</head>
+<body>
+1,2,3,4 -> 2,1,4,3
+</body>
+<script>
+    function ListNode(val) {
+        this.val = val;
+        this.next = null;
+    }
+
+    const swapLink = function (node) {
+        let dummy = new ListNode();
+        dummy.next = node;
+        let curr = dummy;
+        while (curr.next !== null && curr.next.next !== null) {
+            let n1 = curr.next;
+            let n2 = curr.next.next;
+            curr.next = n2;
+            n1.next = n2.next;
+            n2.next = n1;
+            curr = n1.next;
+        }
+        return dummy.next;
+    }
+
+</script>
+</html>
