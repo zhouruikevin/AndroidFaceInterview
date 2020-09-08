@@ -2,6 +2,7 @@ package com.ellen.androidface
 
 import com.ellen.androidface.math.*
 import org.junit.Assert
+import java.lang.StringBuilder
 import org.junit.Test
 
 /**
@@ -34,6 +35,11 @@ class ExampleUnitTest {
     @Test
     fun f4_quickSort() {
         Assert.assertArrayEquals(quicklySort(arrayOf(3, 4, 2, 2, 1, 5)), arrayOf(1, 2, 2, 3, 4, 5))
+}
+    @Test
+    fun f_tree() {
+        val node = Tree(10, Tree(5, Tree(1)), Tree(2))
+        moThree(node)
     }
 
 }
