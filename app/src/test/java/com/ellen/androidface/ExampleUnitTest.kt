@@ -2,7 +2,10 @@ package com.ellen.androidface
 
 import com.ellen.androidface.math.*
 import org.junit.Assert
+import org.junit.Test
 import java.lang.StringBuilder
+import com.ellen.androidface.math.Node
+import com.ellen.androidface.math.reversalNode
 import org.junit.Test
 
 /**
